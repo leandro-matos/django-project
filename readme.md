@@ -1,4 +1,3 @@
-# django-simples
 
 ## Como rodar o projeto?
 
