@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Leandro Matos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner" align='center'>
+					<h1><strong>Eu sou o Leandro</strong>.
+					No decorrer da minha carreira eu conclui duas graduações: </br>
+					Análise e Desenvolvimento de Sistemas e Gestão de Tecnologia da Informação, 
+					me especializando mais em sistemas operacionais Linux e no mundo Open Source, 
+					Atualmente estou aprimorando cada vez mais habilidades em ferramentas <strong>Devops/SRE.</strong>
+					<br />
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>Cloud | Devops | Comptia Linux + | LPIC 1 | Splunk | Observability | Python</h2>
+						</header>
+						<p>Sou fascinado pelo mundo da tecnologia desde os meus 15 anos quando comprei o meu primeiro PC. Acredito que a motivação e o foco no aprendizado são a base para quem quer ser um profissional da área de infraestrutura.
+						</br>Minha carreira começou no Senai, onde fiz um curso técnico de 02 anos de Redes de Computadores. Primeiramente entendo os principais conceitos de redes, protocolos, arquiteturas, sistemas operacionais, governança e segurança da informação.
+						</br>No decorrer da minha carreira eu conclui duas graduações em Análise e Desenvolvimento de Sistemas e Gestão de Tecnologia da Informação, me especializando mais em sistema operacional Linux e no mundo Open Source, principais ferramentas de administração do SO e principais tecnologias que estão no âmbito do sistema com cursos de aperfeiçoamento e certificações. Começei a desenvolver skills em programação, possuo conhecimentos em Python, Powershell e Shell Script.
+						</br>Conhecimentos em Git, Docker, Terraform, Puppet, Kubernetes, Apache, Nginx, Elk Stack, AWS, entre outros.
+						</br>Atualmente estou aprimorando cada vez mais habilidades em CI/CD, Observability, Application Monitoring, Infrastructure Monitoring, Configuration Management e Cloud Computing.</p>
+					</section>
+
+				<!-- Two -->
+					<section id="two">
+						<h2>Posts</h2>
+						<div class="row">
+
+							{%for post in posts %}
+								<article class="col-6 col-12-xsmall work-item">
+									{% if post.imagem %}
+										<img src="{{ post.imagem.url }}" alt="" width="350px" height="200px"/></a>
+									{% endif %}
+									
+									<h3>{{ post.title }}</h3>
+									<p> {{ post.subtitle }} </p>
+									<ul class="actions">
+										<li><a href="{% url 'post_detail' post.id %}" class="button">Read More</a></li>
+									</ul>
+								</article>
+							{% endfor %}
+						</div>
+						<ul class="actions">
+							<li><a href="#" class="button">Full Portfolio</a></li>
+						</ul>
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<h2>Fale Comigo</h2>
+						<p>Você pode entrar em contato comigo através de qualquer uma das minhas redes sociais.</p>
+						<div class="row">
+							<div class="col-8 col-12-small">
+								<form method="post" action="{% url 'save_form' %}">
+									{% csrf_token %}
+									<div class="row gtr-uniform gtr-50">
+										<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+										<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+										<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+									</div>
+									</br>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" /></li>
+									</ul>
+								</form>
+							
+							</div>
+							<div class="col-4 col-12-small">
+								<ul class="labeled-icons">
+									<li>
+										<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
+										1234 Somewhere Rd.<br />
+										Nashville, TN 00000<br />
+										United States
+									</li>
+									<li>
+										<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
+										000-000-0000
+									</li>
+									<li>
+										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+										<a href="#">hello@untitled.tld</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
